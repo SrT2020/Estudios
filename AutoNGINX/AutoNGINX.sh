@@ -106,26 +106,43 @@ EOL
 
 mkdir /etc/nginx/nginxconfig.io
 cat <<EOL | sudo tee /etc/nginx/nginxconfig.io/security.conf
-# security headers
+# Enhanced security headers
 add_header X-XSS-Protection          "1; mode=block" always;
 add_header X-Content-Type-Options    "nosniff" always;
-add_header Referrer-Policy           "no-referrer-when-downgrade" always;
-add_header Content-Security-Policy   "default-src 'self' http: https: ws: wss: data: blob: 'unsafe-inline'; frame-ancestors 'self';" always;
-add_header Permissions-Policy        "interest-cohort=()" always;
-add_header Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" always;
+add_header Referrer-Policy           "strict-origin-when-cross-origin" always;
+add_header Content-Security-Policy   "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self';" always;
+add_header Permissions-Policy        "geolocation=(), microphone=(), camera=(), interest-cohort=()" always;
+add_header Strict-Transport-Security "max-age=63072000; includeSubDomains; preload" always;
+add_header X-Frame-Options           "DENY" always;
+add_header Expect-CT                 "max-age=86400, enforce" always;
+add_header X-Download-Options        "noopen" always;
+add_header X-Permitted-Cross-Domain-Policies "none" always;
 
-# . files
+
 location ~ /\.(?!well-known) {
     deny all;
+    access_log off;
+    log_not_found off;
 }
 
-# security.txt
+location ~ (^|/)\. {
+    return 404;
+}
+
+
+location ~* \.(?:txt|md|xml|sh|env|ini|log|conf)$ {
+    deny all;
+    access_log off;
+    log_not_found off;
+}
+
+# security.txt redirection
 location /security.txt {
     return 301 /.well-known/security.txt;
 }
 
 location = /.well-known/security.txt {
-    alias ~/security.txt;
+    alias /var/www/security.txt;  
 }
 EOL
 
