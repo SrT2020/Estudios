@@ -54,7 +54,7 @@ echo "Configuring MariaDB database..."
 apt-get install -y mariadb-server mariadb-client
 
 # Secure MariaDB installation
-mysql_secure_installation
+# mysql_secure_installation
 
 # Create the Icinga Web 2 database and user
 echo "Creating database and user for Icinga Web 2..."
