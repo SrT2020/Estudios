@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #TOMASRUIZ2122
-email = "toruse@fp.insjoaquimmir.cat"
-clave = "litorus2122"
+email = ""
+clave = ""
 from playsound import playsound
 import imaplib
 import email
@@ -66,6 +66,6 @@ def get_emails(get_emailss, gmailsmtpsvr, gmailusr, gmailpwd, bshowbody):
         return ""
 
 while True:
-    get_emails(get_emailss,"smtp.gmail.com", "toruse@fp.insjoaquimmir.cat", "litorus2122",False)
+    get_emails(get_emailss,"smtp.gmail.com", "", "",False)
     playsound('sonido.mp3')
     time.sleep(5); os.system("clear")
