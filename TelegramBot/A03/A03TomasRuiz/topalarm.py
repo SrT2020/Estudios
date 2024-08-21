@@ -62,5 +62,5 @@ def get_emails(gmailsmtpsvr, gmailusr, gmailpwd, bshowbody):
         print("Error desconocido")
         return ""
 while True:
-    get_emails("smtp.gmail.com", "toruse@fp.insjoaquimmir.cat", "litorus2122",False)
+    get_emails("smtp.gmail.com", "", "",False)
     time.sleep(5); os.system("clear")
