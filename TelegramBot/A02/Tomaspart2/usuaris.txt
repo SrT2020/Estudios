@@ -1,0 +1,2 @@
+tarda,grup1,grup2,/home/tarda
+mati,grup1,grup2,/home/tarda
