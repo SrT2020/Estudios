@@ -1,8 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-#TOMASRUIZ2122
-#!!!!contenido de la version de v02 para minimaz entrega de ficheros, 
-# misma finalidad pero resultado ampliado!!!!!!!!!!!
+
 import sys         
 def grup(x,ff):
     for y in ff:
