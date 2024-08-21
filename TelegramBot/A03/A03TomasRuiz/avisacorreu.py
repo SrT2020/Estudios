@@ -35,8 +35,8 @@ def mandar_mail(destino, texto, emisor, clave):
     except Exception as ex:
         print(ex) 
 try:
-    emisor  = "toruse@fp.insjoaquimmir.cat"
-    clave = "litorus2122"
+    emisor  = ""
+    clave = ""
     if(len(sys.argv) < 3 or len(sys.argv) > 8):
         print("pasame por parametros correo@correo ram <numero>, cpu <numero> o disco <numero> o todos juntos")
     else:
