@@ -39,6 +39,6 @@ def mandar_mail(destino, texto, emisor, clave):
 if (len(sys.argv) != 3):
     print("pasame el correo y el texto entre comillas por paramentro")
 else:
-    emisor  = "toruse@fp.insjoaquimmir.cat"
-    clave = "litorus2122"
+    emisor  = ""
+    clave = ""
     mandar_mail(sys.argv[1], sys.argv[2], emisor, clave)
