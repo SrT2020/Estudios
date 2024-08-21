@@ -62,7 +62,7 @@ def get_emails(gmailsmtpsvr, gmailusr, gmailpwd, bshowbody):
         return ""
 
 def testeo():
-    get_emails("smtp.gmail.com", "toruse@fp.insjoaquimmir.cat", "litorus2122",False)
+    get_emails("smtp.gmail.com", "", "",False)
 
 
 testeo()
